@@ -12,8 +12,6 @@
             echo json_encode($donnee);
             if(password_verify($_POST['password'], $donnee['password'])) {
                 $_SESSION['id'] = $donnee['id'];
-                $_SESSION['firstname'] = $donnee['firstname'];
-                $_SESSION['lastname'] = $donnee['lastname'];
                 $_SESSION['mail'] = $donnee['mail'];
                 echo json_encode(array('success' => 'true'));
             } echo json_encode(array('error' => 'wrong password'));

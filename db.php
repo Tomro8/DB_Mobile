@@ -1,7 +1,7 @@
 <?php
     $dbName = 'revendiquons';
     $user = 'root';
-    $password = '1234';
+    $password = '';
     $host = 'localhost';
 //    echo "";
     if(!isset($conn)) {

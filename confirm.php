@@ -11,7 +11,7 @@
         {
             if($_POST['key'] == $donnee['keyActivation'])	{
                 $conn->query("update re_user set isActivate = true where mail = '".$donnee['mail']."'");
-                echo'Votre compte à bien été activé ! ';
+                echo 'Votre compte a bien été activé ! ';
             } else echo json_encode(array('error' => 'wrong key'));
             $_SESSION['user'] = $donnee['mail'];
             $_SESSION['id'] = $donnee['id'];

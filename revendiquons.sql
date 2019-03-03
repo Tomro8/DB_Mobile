@@ -25,15 +25,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `re_ticket`
+-- Structure de la table `re_proposition`
 --
 
 create database revendiquons;
 use revendiquons;
-DROP TABLE IF EXISTS `re_ticket`;
-CREATE TABLE IF NOT EXISTS `re_ticket` (
+DROP TABLE IF EXISTS `re_proposition`;
+CREATE TABLE IF NOT EXISTS `re_proposition` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `id_user` bigint(20) NOT NULL,
+  `titre` text NOT NULL,
   `description` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_user` (`id_user`)
@@ -49,8 +50,6 @@ DROP TABLE IF EXISTS `re_user`;
 CREATE TABLE IF NOT EXISTS `re_user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `mail` text NOT NULL,
-  `firstname` text NOT NULL,
-  `lastname` text NOT NULL,
   `password` text NOT NULL,
   `register` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `isActivate` tinyint(4) NOT NULL DEFAULT '0',
@@ -61,18 +60,18 @@ CREATE TABLE IF NOT EXISTS `re_user` (
 -- --------------------------------------------------------
 
 --
--- Structure de la table `re_vote_ticket`
+-- Structure de la table `re_vote`
 --
 
-DROP TABLE IF EXISTS `re_vote_ticket`;
-CREATE TABLE IF NOT EXISTS `re_vote_ticket` (
+DROP TABLE IF EXISTS `re_vote`;
+CREATE TABLE IF NOT EXISTS `re_vote` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `id_user` bigint(20) NOT NULL,
-  `id_ticket` bigint(20) NOT NULL,
+  `id_proposition` bigint(20) NOT NULL,
   `forOrAgainst` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK_vt_user` (`id_user`),
-  KEY `FK_vt_ticket` (`id_ticket`)
+  KEY `FK_vt_proposition` (`id_proposition`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -80,16 +79,16 @@ CREATE TABLE IF NOT EXISTS `re_vote_ticket` (
 --
 
 --
--- Contraintes pour la table `re_ticket`
+-- Contraintes pour la table `re_proposition`
 --
-ALTER TABLE `re_ticket`
+ALTER TABLE `re_proposition`
   ADD CONSTRAINT `FK_user` FOREIGN KEY (`id_user`) REFERENCES `re_user` (`id`);
 
 --
--- Contraintes pour la table `re_vote_ticket`
+-- Contraintes pour la table `re_vote`
 --
-ALTER TABLE `re_vote_ticket`
-  ADD CONSTRAINT `FK_vt_ticket` FOREIGN KEY (`id_ticket`) REFERENCES `re_ticket` (`id`),
+ALTER TABLE `re_vote`
+  ADD CONSTRAINT `FK_vt_proposition` FOREIGN KEY (`id_proposition`) REFERENCES `re_proposition` (`id`),
   ADD CONSTRAINT `FK_vt_user` FOREIGN KEY (`id_user`) REFERENCES `re_user` (`id`);
 COMMIT;
 
