@@ -2,14 +2,12 @@
     include('db.php');
     session_start();
     header("Access-Control-Allow-Origin: *");
-    $content = trim(file_get_contents(  "php://input"));
-    $decoded = json_decode($content, true);
     $key = rand();
 
     if(isset($_POST['password']) && isset($_POST['mail']) ) {
         if( preg_match('/[a-zA-Z0-9]+@(efrei\.net|esigetel\.net|efreitech\.net)/', $_POST['mail'])) {
             $sql = "INSERT INTO re_user ( password, mail, keyActivation)
-                        values('" . password_hash($_POST['password'], PASSWORD_DEFAULT) . "',
+            values('" . password_hash($_POST['password'], PASSWORD_DEFAULT) . "',
                         '" . $_POST['mail'] . "',
                         " . $key . ")";
             if ($conn->query($sql)) echo json_encode(array('success' => true));

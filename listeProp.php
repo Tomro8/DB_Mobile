@@ -4,7 +4,6 @@
     session_start();
     header("Access-Control-Allow-Origin: *");
     $_SESSION['id'] = 6;
-    $content = trim(file_get_contents(  "php://input"));
     $sql = "SELECT * FROM re_proposition";
     $data = array();
     $req = $conn->query($sql);
