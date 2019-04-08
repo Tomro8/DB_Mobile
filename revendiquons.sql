@@ -36,8 +36,8 @@ CREATE TABLE IF NOT EXISTS `re_proposition` (
   `id_user` bigint(20) NOT NULL,
   `titre` text NOT NULL,
   `description` text NOT NULL,
-  `positive` bigint(20),
-  `negative` bigint(20),
+  `positive` bigint(20) DEFAULT '0',
+  `negative` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `FK_user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
