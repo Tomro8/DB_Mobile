@@ -3,7 +3,6 @@
     session_start();
     header("Content-type:application/json");
     header("Access-Control-Allow-Origin: *");
-    $content = trim(file_get_contents(  "php://input"));
     if(isset($_POST['mail']) && isset($_POST['key']) ) {
         $sql = "select * from re_user where mail = '".$_POST['mail']."'";
         $req = $conn->query($sql);
