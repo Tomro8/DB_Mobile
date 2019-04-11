@@ -3,7 +3,6 @@
     include('db.php');
     session_start();
     header("Access-Control-Allow-Origin: *");
-    $_SESSION['id'] = 6;
     $data = array();
     $sql = "SELECT * FROM re_proposition"; //Récupère les propositions
     $req = $conn->query($sql);

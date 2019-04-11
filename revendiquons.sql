@@ -28,6 +28,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `re_proposition`
 --
 
+drop database revendiquons;
 create database revendiquons;
 use revendiquons;
 DROP TABLE IF EXISTS `re_proposition`;
