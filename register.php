@@ -3,7 +3,7 @@
     session_start();
     header("Access-Control-Allow-Origin: *");
     $key = rand();
-    $domain = "localhost";
+    $domain = "104.248.245.22";
 
     if(isset($_POST['password']) && isset($_POST['mail']) ) {
         if( preg_match('/[a-zA-Z0-9]+@(efrei\.net|esigetel\.net|efreitech\.net)/', $_POST['mail'])) {
