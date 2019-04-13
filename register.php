@@ -26,7 +26,7 @@
                 }
                 else { echo json_encode(array('error' => 'error inserting account into databases')); }
             }
-            else { echo(json_encode(array('error' => 'mail already taken'))); }
+            else { echo json_encode(array('error' => 'mail already taken')); }
         }
         else { echo json_encode(array('error' => 'not an esigetel / efrei / efreitech mail')); }
     } 

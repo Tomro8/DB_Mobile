@@ -61,12 +61,11 @@ try {
     $mail->Subject = $from.' : '.$title;
     $mail->Body    = $message;
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-    echo 'before Send';
     $mail->send();
-    echo 'message send';
+    
 } catch (Exception $e) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
+    echo json_encode(array('error' => 'Message could not be sent.'));
+    echo json_encode(array('error' => 'Mailer Error: ' . $mail->ErrorInfo));
 }
 
 ?>
