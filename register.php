@@ -16,7 +16,7 @@
                 if ($conn->query($sql)) { //Insert successful
                     //Query the id
                     $req = $conn->query("SELECT id FROM re_user where mail = '".$_POST['mail']."' ");
-                    $message = "Bienvenue sur revendiquons, merci de clicker ici pour activer votre compte : http://".$domain."/active.php?mail=".
+                    $message = "Bienvenue sur revendiquons, merci de clicker ici pour activer votre compte : http://".$domain."/activate.php?mail=".
                         $_POST['mail']."&key=".$key;
                     include('email.php');
                     if ($donnees = $req->fetch()) { 

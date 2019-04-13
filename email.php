@@ -10,10 +10,15 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 
+
 $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
-$to = "baptiste.px@gmail.com";
+$to = "";
+if (isset($_POST['mail'])) {
+    $to = $_POST['mail'];
+}
 $from = "efreirevendiquons@gmail.com";
 $title = "Inscription";
+
 try {
     //Server settings
     $mail->SMTPDebug = 0;                                 // Enable verbose debug output
