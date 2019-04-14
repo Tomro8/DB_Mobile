@@ -37,7 +37,7 @@
             $sql = "UPDATE re_proposition SET positive = " . $positive . 
                 ", negative = " . $negative . " WHERE id = " . $_POST['prop_id'];
 
-            if ($conn->query($sql)) { echo json_encode(array('sucess' => true)); }
+            if ($conn->query($sql)) { echo json_encode(array('success' => true)); }
             else { echo json_encode(array('error' => 'error inserting proposition into databases')); }
         } else echo json_encode(array('error' => 'error inserting vote into databases'));
     } else echo json_encode(array('error' => 'missing data'));
